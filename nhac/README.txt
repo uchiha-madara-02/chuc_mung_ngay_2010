@@ -8,5 +8,3 @@ Dat cac file MP3 vao thu muc nay. Ten file can dung:
 - ba.mp3
 - chi_gai.mp3
 
-Neu file MP3 cua nhom bi thieu/loi/khong phat duoc, trang HTML tu dong chuyen sang giai dieu tao bang code.
-Giu thu muc nhac nam canh file chuc_mung_20_10_nhac_rieng.html.
