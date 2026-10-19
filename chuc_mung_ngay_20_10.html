@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Chúc mừng 20/10</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#2a0f2e; --plum2:#4a1a4f; --rose:#e8567f; --blush:#ffd9e2; --gold:#f4c26b; --ivory:#fff6f1;
+  color-scheme:dark; box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0; min-height:100vh; color:var(--ivory);
+  font-family:"Be Vietnam Pro",system-ui,sans-serif; font-weight:300; line-height:1.6;
+  background:radial-gradient(1200px 700px at 50% -10%,var(--plum2),var(--plum) 70%) fixed var(--plum);
+  overflow-x:hidden;
+}
+canvas{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+main{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:40px 20px 56px;text-align:center}
+.date{display:inline-block;padding:6px 18px;border:1px solid var(--gold);border-radius:99px;color:var(--gold);font-size:.9rem;letter-spacing:.04em}
+h1{font-family:"Dancing Script",cursive;font-weight:700;font-size:clamp(2.6rem,10vw,5rem);line-height:1.1;margin:18px 0 6px;
+  background:linear-gradient(90deg,var(--blush),var(--gold),var(--blush));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin:0;color:var(--blush);font-size:1.05rem}
+.count{margin-top:10px;font-size:.9rem;color:var(--gold);min-height:1.4em}
+#bouquet{width:min(100%,480px);height:auto;margin:10px auto -6px;display:block;cursor:pointer;overflow:visible}
+.head{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:bloom 1.4s cubic-bezier(.2,1.3,.4,1) forwards}
+.sway{animation:sway 5s ease-in-out infinite alternate}
+.nod{transform-box:fill-box;transform-origin:center;animation:nod 3.4s ease-in-out infinite alternate}
+@keyframes nod{from{transform:rotate(-5deg)}to{transform:rotate(5deg)}}
+@keyframes bloom{to{transform:scale(1)}}
+@keyframes sway{from{transform:rotate(-3.2deg)}to{transform:rotate(3.2deg)}}
+.card{background:rgba(255,246,241,.07);border:1px solid rgba(255,217,226,.28);border-radius:22px;padding:26px 24px 22px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.to{font-family:"Dancing Script",cursive;font-size:1.9rem;color:var(--gold);margin:0 0 6px}
+#wish{font-size:1.12rem;min-height:5.6em;margin:0 auto;max-width:34em;transition:opacity .35s}
+#wish.out{opacity:0}
+.row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+input{font:inherit;color:var(--ivory);background:rgba(0,0,0,.25);border:1px solid rgba(255,217,226,.4);border-radius:99px;padding:11px 18px;min-width:0;flex:1 1 180px;max-width:260px;text-align:center}
+input::placeholder{color:rgba(255,217,226,.6)}
+button{font:inherit;font-weight:600;cursor:pointer;border:0;border-radius:99px;padding:11px 22px;color:var(--plum);background:linear-gradient(135deg,var(--gold),var(--blush));transition:transform .15s}
+button.ghost{background:transparent;color:var(--blush);border:1px solid var(--blush)}
+button:hover{transform:translateY(-2px)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.foot{margin-top:26px;font-size:.85rem;color:rgba(255,217,226,.7)}
+h1{background-size:200% auto;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:200% center}}
+.aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aurora i{position:absolute;width:55vmax;height:55vmax;border-radius:50%;filter:blur(90px);opacity:.35;animation:drift 18s ease-in-out infinite alternate}
+.aurora i:nth-child(1){background:#e8567f;left:-20vmax;top:-10vmax}
+.aurora i:nth-child(2){background:#7a3cff;right:-25vmax;top:20vh;animation-delay:-6s}
+.aurora i:nth-child(3){background:#f4c26b;left:10vw;bottom:-35vmax;opacity:.22;animation-delay:-11s}
+@keyframes drift{to{transform:translate(8vmax,6vmax) scale(1.2)}}
+.mus{position:fixed;top:calc(env(safe-area-inset-top,0px) + 12px);right:12px;z-index:5;padding:8px 16px;font-size:.85rem;background:rgba(42,15,46,.65);color:var(--blush);border:1px solid var(--blush);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:16px}
+.chip{padding:7px 15px;font-size:.88rem;font-weight:400;background:transparent;color:var(--blush);border:1px solid rgba(255,217,226,.45)}
+.chip.on{background:linear-gradient(135deg,var(--gold),var(--blush));color:var(--plum);border-color:transparent;font-weight:600}
+.card{box-shadow:0 20px 60px rgba(232,86,127,.25),inset 0 0 0 1px rgba(244,194,107,.12)}
+#wish::after{content:'';display:inline-block;width:2px;height:1.1em;background:var(--gold);margin-left:3px;vertical-align:-.2em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.aurora i,h1,#wish::after{animation:none}.sway,.nod,.eq b,.splash .env,.open{animation:none!important}.head{animation-duration:.01s}#wish{transition:none}}
+/* Tăng độ tương phản để lời chúc dễ đọc hơn */
+body{color:#fffafc;font-weight:400;background:radial-gradient(1000px 600px at 50% -15%,#3a173f,#190b20 72%) fixed #190b20}
+.aurora i{opacity:.16;filter:blur(110px)}
+.aurora i:nth-child(3){opacity:.08}
+.card{background:rgba(20,7,24,.78);border:1px solid rgba(255,217,226,.42);box-shadow:0 16px 44px rgba(0,0,0,.28),inset 0 0 0 1px rgba(244,194,107,.10);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px)}
+#wish{color:#fffafc;font-weight:400;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.sub{color:#ffe8ef;font-weight:400}
+.foot{color:#e9cbd6}
+.chip{color:#ffe8ef;border-color:rgba(255,232,239,.68);font-weight:500}
+button.ghost{color:#ffe8ef;border-color:#ffe8ef}
+input::placeholder{color:#e8cbd5}
+.to{color:#ffd77e;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+/* ===== Giao diện mới ===== */
+body{overflow-x:hidden}
+main{max-width:720px;padding:34px 18px 60px}
+.date{background:rgba(244,194,107,.1);letter-spacing:.14em;font-weight:600;font-size:.82rem;padding:7px 20px}
+h1{font-size:clamp(2.5rem,9.5vw,4.6rem);margin:20px 0 10px;filter:drop-shadow(0 4px 24px rgba(232,86,127,.35))}
+.sub{max-width:28em;margin:0 auto;font-size:1.02rem}
+.count{display:inline-block;margin-top:14px;padding:5px 16px;border-radius:99px;background:rgba(0,0,0,.28);font-weight:600}
+.count:empty{display:none}
+#bouquet{width:min(100%,500px);margin:14px auto -10px;filter:drop-shadow(0 18px 38px rgba(232,86,127,.3))}
+.card{position:relative;max-width:640px;margin:26px auto 0;padding:40px 22px 24px;border-radius:28px}
+.card::before{content:"\201C";position:absolute;top:-6px;left:50%;transform:translateX(-50%);font-family:"Dancing Script",cursive;font-size:92px;line-height:1;color:var(--gold);text-shadow:0 2px 16px rgba(244,194,107,.5)}
+.chips{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;justify-content:safe center;scroll-snap-type:x proximity;padding:4px 2px 10px;margin:0 -4px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;scroll-snap-align:center;white-space:nowrap;padding:8px 16px;transition:background .25s,color .25s,transform .15s}
+.chip.on{box-shadow:0 4px 16px rgba(244,194,107,.35)}
+.to{font-size:2.1rem;margin-bottom:8px}
+#wish{font-size:1.18rem;line-height:1.75;min-height:7.4em;display:flex;align-items:center;justify-content:center;text-wrap:pretty}
+.row{gap:10px;margin-top:20px}
+.row input{flex:1 1 100%;max-width:none;padding:13px 20px;background:rgba(255,255,255,.07)}
+.row input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(244,194,107,.25)}
+.row button{flex:1 1 150px;padding:13px 20px}
+.foot{margin-top:22px}
+.mus{display:flex;align-items:center;gap:9px;top:calc(env(safe-area-inset-top,0px) + 12px);right:14px;padding:9px 16px;font-weight:600}
+.eq{display:inline-flex;align-items:flex-end;gap:2px;height:13px}
+.eq b{display:block;width:3px;height:4px;border-radius:2px;background:var(--gold)}
+.mus.playing .eq b{animation:eq .9s ease-in-out infinite alternate}
+.eq b:nth-child(2){animation-delay:-.3s!important}.eq b:nth-child(3){animation-delay:-.6s!important}
+@keyframes eq{to{height:13px}}
+body.opened main>*:not(h1){animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+body.opened main>*:nth-child(2){animation-delay:.12s}body.opened main>*:nth-child(4){animation-delay:.2s}
+body.opened main>*:nth-child(5){animation-delay:.3s}body.opened main>*:nth-child(6){animation-delay:.45s}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.splash{position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;text-align:center;cursor:pointer;
+  background:radial-gradient(900px 600px at 50% 30%,#4a1a4f,#190b20 75%);transition:opacity .8s,visibility .8s}
+.splash.hide{opacity:0;visibility:hidden;pointer-events:none}
+.splash .env{font-size:84px;line-height:1;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 12px 28px rgba(232,86,127,.5))}
+@keyframes float{50%{transform:translateY(-12px) rotate(-3deg)}}
+.sp-to{font-family:"Dancing Script",cursive;font-size:clamp(1.9rem,7vw,2.8rem);color:var(--gold);margin:0;max-width:16em}
+.open{padding:15px 34px;font-size:1.05rem;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 12px rgba(244,194,107,.18)}}
+.splash small{color:#e9cbd6}
+html{touch-action:pan-x pan-y;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{min-height:100dvh;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
+input{font-size:16px;-webkit-user-select:text;user-select:text}
+button{-webkit-appearance:none;appearance:none;touch-action:manipulation}
+@media (max-width:600px){
+  main{padding:62px 14px 36px}
+  .date{font-size:.74rem;padding:6px 16px}
+  h1{font-size:clamp(2.1rem,11.5vw,3rem);margin:16px 0 8px}
+  .sub{font-size:.95rem;padding:0 6px}
+  .count{font-size:.82rem;margin-top:10px}
+  #bouquet{width:100%;margin:4px auto -6px}
+  .card{margin-top:18px;padding:34px 14px 16px;border-radius:24px}
+  .card::before{font-size:72px;top:-4px}
+  .chips{margin:0 -6px 10px;padding:4px 6px 8px}
+  .chip{min-height:40px;padding:8px 14px;font-size:.86rem}
+  .to{font-size:1.65rem}
+  #wish{font-size:1.05rem;line-height:1.7;min-height:9.4em}
+  .row{margin-top:14px}
+  .row input{padding:13px 16px}
+  .row button{flex:1 1 100%;min-height:46px}
+  .foot{font-size:.8rem;margin-top:16px}
+  .mus{top:calc(env(safe-area-inset-top,0px) + 8px);right:10px;padding:8px 13px;font-size:.8rem}
+  .splash{padding:20px}.splash .env{font-size:72px}.open{padding:16px 30px;min-height:50px}
+}
+@media (max-height:520px) and (orientation:landscape){main{padding-top:56px}#bouquet{width:min(60vh,320px)}.splash .env{font-size:52px}}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<canvas id="fx" aria-hidden="true"></canvas>
+<div id="splash" class="splash" role="dialog" aria-modal="true" aria-label="Mở thiệp chúc mừng">
+  <div class="env" aria-hidden="true">💌</div>
+  <p class="sp-to" id="spTo">Có một lời chúc dành riêng cho bạn</p>
+  <button id="open" class="open">Chạm để mở thiệp</button>
+  <small>Bật loa để nghe nhạc nhé 🎶</small>
+</div>
+<button id="music" class="mus" aria-pressed="false" aria-label="Bật hoặc tắt nhạc"></button>
+<main>
+  <span class="date">20 · 10 · 2026</span>
+  <h1>Chúc mừng ngày Phụ nữ Việt Nam</h1>
+  <p class="sub">Gửi đến những người phụ nữ tuyệt vời nhất cuộc đời mình</p>
+  <div class="count" id="count"></div>
+  <svg id="bouquet" viewBox="0 0 400 330" role="img" aria-label="Bó hoa nở rộ. Chạm vào để hoa nở lại."></svg>
+  <section class="card" aria-live="polite">
+    <div class="chips" id="chips" role="group" aria-label="Chọn người nhận"></div>
+    <p class="to" id="to">Gửi người đặc biệt,</p>
+    <p id="wish"></p>
+    <div class="row">
+      <input id="name" type="text" maxlength="30" placeholder="Nhập tên người nhận" aria-label="Tên người nhận">
+      <button id="next">Lời chúc khác</button>
+    </div>
+  </section>
+  <p class="foot">Chạm vào bó hoa để hoa nở lại 🌸</p>
+</main>
+<script>
+(function(){
+  var NS="http\://www.w3.org/2000/svg";
+  var wishes=[
+    "Chúc {n} luôn rạng rỡ như đóa hoa đầu mùa, được yêu thương nhiều hơn mỗi ngày và không bao giờ phải tự mình gồng gánh mọi thứ.",
+    "Cảm ơn {n} vì đã luôn lặng lẽ làm điểm tựa cho mọi người. Hôm nay, hãy để mọi người chăm sóc {n} một chút nhé.",
+    "Chúc {n} thật nhiều sức khỏe, bình an và những điều nhỏ bé khiến trái tim mỉm cười: một tách cà phê ngon, một cái ôm ấm.",
+    "Mong mọi dự định của {n} đều nở hoa, mọi nỗ lực đều được ghi nhận, và mọi ngày trôi qua đều đáng nhớ.",
+    "{n} không cần hoàn hảo, chỉ cần là chính mình đã đủ đáng quý. Chúc {n} một ngày 20/10 ngập tràn niềm vui!",
+    "Chúc {n} xinh đẹp theo cách riêng, mạnh mẽ theo cách riêng, và hạnh phúc theo cách mà {n} mong muốn nhất."
+  ];
+  var cats={
+    "Mẹ":["Con chúc {n} luôn khỏe mạnh, nhẹ lòng và thật nhiều niềm vui. Cảm ơn {n} vì đã hy sinh âm thầm suốt bao năm.","Dù con lớn đến đâu, con vẫn cần vòng tay của {n}. Chúc {n} 20/10 ngập tràn hoa và tiếng cười!","Mỗi nếp nhăn của {n} là một câu chuyện yêu thương. Con biết ơn {n} nhiều lắm, hôm nay {n} nghỉ ngơi nhé!","Chúc {n} mãi trẻ trung, xinh đẹp và hạnh phúc bên các con. Con yêu {n} nhất trên đời.","Cảm ơn {n} đã dạy con biết yêu thương và kiên cường. Chúc {n} mọi điều bình an, tròn đầy.","Bữa cơm của {n} là nơi ấm nhất với con. Chúc {n} luôn bình yên và được yêu chiều thật nhiều."],
+    "Vợ / Người yêu":["Anh chúc {n} luôn rạng rỡ. Cảm ơn {n} vì đã đến và làm cuộc đời anh có màu sắc.","Mỗi ngày bên {n} đều là một ngày đáng nhớ. 20/10 này, {n} chỉ cần vui, mọi việc còn lại để anh lo.","Chúc {n} xinh đẹp, hạnh phúc và luôn được cưng chiều. Anh thương {n} nhiều hơn lời nói.","Cảm ơn {n} vì đã bao dung với mọi tính xấu của anh. Chúc {n} 20/10 ngọt như món tráng miệng yêu thích.","Thế giới có thể bận rộn, nhưng anh luôn dành chỗ nhất cho {n}. Chúc {n} ngày Phụ nữ thật rực rỡ!","Chúc {n} mọi ước mơ đều thành hiện thực. Anh sẽ luôn ở cạnh, cổ vũ {n} đến cùng."],
+    "Bạn bè":["Chúc {n} xinh đẹp, giàu năng lượng và chẳng bao giờ hết đam mê. Cảm ơn vì luôn bên mình!","Chúc {n} gặp nhiều may mắn, tiền vào như nước và crush nhắn tin mỗi ngày. Yêu {n} nhiều!","Có {n} bên cạnh, mọi chuyện bớt khó đi một nửa. Chúc {n} 20/10 vui hết cỡ nhé!","Chúc {n} thành công rực rỡ, vui vẻ mỗi ngày và luôn được là chính mình.","Chúc {n} bình yên giữa bộn bề, mạnh mẽ giữa sóng gió và luôn xinh đẹp như hôm nay.","Hôm nay {n} là nữ hoàng, cứ ăn ngon, mua sắm và thư giãn thoải mái nhé! Chúc mừng 20/10!"],
+    "Đồng nghiệp":["Chúc {n} thật nhiều sức khỏe, công việc suôn sẻ và luôn giữ được nụ cười tỏa nắng.","Cảm ơn {n} vì sự tận tâm và chuyên nghiệp. Chúc {n} ngày 20/10 ý nghĩa và đầy hoa!","Chúc {n} deadline luôn lùi, lương luôn tăng và tâm trạng luôn tốt. Chúc mừng 20/10!","Có {n} trong đội là may mắn của cả nhóm. Chúc {n} ngày Phụ nữ thật vui và nhiều quà.","Chúc {n} vừa giỏi việc nước vừa đảm việc nhà mà vẫn thảnh thơi, xinh đẹp mỗi ngày.","Chúc {n} gặt hái nhiều thành công mới, đồng thời có thật nhiều thời gian cho bản thân."],
+    "Cô giáo":["Em chúc {n} luôn mạnh khỏe và hạnh phúc. Cảm ơn {n} đã dìu dắt em bằng cả trái tim.","Những bài học của {n} theo em suốt cuộc đời. Chúc {n} ngày 20/10 ngập tràn hoa và niềm vui!","Cảm ơn {n} vì sự kiên nhẫn và tình thương không đổi. Chúc {n} thật nhiều sức khỏe.","Người lái đò thầm lặng như {n} xứng đáng nhận mọi lời tri ân. Chúc {n} một ngày thật vui!","Chúc {n} mãi giữ ngọn lửa nghề, được học trò yêu quý và gia đình đầm ấm.","Công ơn của {n} em xin ghi nhớ. Chúc {n} 20/10 bình yên và rạng rỡ!"]
+  };
+  var more={
+    "Mẹ":["Con chúc {n} mỗi sáng thức dậy đều thấy nhẹ nhõm, mỗi tối đi ngủ đều thấy bình yên. Con yêu {n} nhiều lắm.","Ngày xưa {n} ấm con, giờ đến lượt con đồng hành cùng {n}. Chúc {n} 20/10 thật trọn vẹn!","Chúc {n} luôn được làm những điều {n} thích, đi những nơi {n} muốn đến và cười thật nhiều.","Trong mắt con, {n} là người phụ nữ đẹp nhất và giỏi nhất. Chúc mừng ngày của {n}!","Dù đi đến đâu, con vẫn mang theo lời dạy của {n}. Chúc {n} luôn vui khỏe và hạnh phúc bên con cháu."],
+    "Vợ / Người yêu":["Chúc {n} mỗi ngày đều là một bản nhạc vui. Anh may mắn biết bao khi có {n} ở bên.","Chúc {n} luôn được nhận hoa, nhận quà và đặc biệt là nhận được rất nhiều yêu thương từ anh.","Em là lý do khiến anh muốn tốt hơn mỗi ngày. Chúc {n} 20/10 ngọt ngào như chính {n}.","Chúc {n} luôn cười thật tươi, vì nụ cười của {n} là điều đẹp nhất anh từng thấy.","Anh không hứa cho {n} cả thế giới, nhưng anh hứa luôn lắng nghe, luôn ở đây. Chúc mừng 20/10!","Chúc {n} đời này sống nhẹ tênh, yêu được yêu và hạnh phúc bên anh mãi mãi."],
+    "Bạn bè":["Chúc {n} luôn đẹp theo cách riêng, giỏi theo cách riêng và vui không cần lý do.","Chúc {n} những chuyến đi thật xa, những bữa ăn thật ngon và những người bạn thật lòng như mình.","{n} ơi, cảm ơn vì đã là nơi mình được là chính mình. Chúc {n} 20/10 vui như hội!","Chúc {n} dù ngày dài hay ngắn đều có ít nhất một điều khiến {n} mỉm cười.","Chúc {n} luôn nổi bật như bông hoa giữa đám đông và dịu dàng như làn gió sau mưa.","Chúc {n} sống đời này không tiếc nuối, yêu nhiều, ăn ngon, ngủ đủ. Bạn thân mãi bên cạnh nhé!"],
+    "Đồng nghiệp":["Chúc {n} công việc thuận lợi, đồng nghiệp dễ thương và sếp luôn hài lòng.","Nhờ có {n} mà văn phòng nhiều tiếng cười hơn. Chúc {n} 20/10 thật rạng ngời!","Chúc {n} luôn giữ được sự cân bằng giữa sự nghiệp và tổ ấm, có thêm nhiều cơ hội mới.","Chúc {n} ngày nào cũng có cà phê ngon, họp ít, việc dễ và nhận được nhiều lời khen.","Một tập thể mạnh nhờ những người như {n}. Chúc {n} luôn được trân trọng và yêu thương.","Chúc {n} ngày 20/10 thật trọn vẹn, đủ hoa, đủ quà và đủ tiếng cười."],
+    "Cô giáo":["Em chúc {n} luôn tràn đầy cảm hứng, học trò ngoan và gặp nhiều niềm vui trong nghề.","Nhờ {n} mà em tin vào chính mình hơn. Chúc {n} 20/10 thật vui và đầy ắp hoa tươi.","Bao nhiêu lần {n} thức khuya soạn bài vì bọn em. Em xin chân thành cảm ơn {n} và chúc {n} luôn khỏe.","Chúc {n} luôn trẻ trung, yêu nghề và được thế hệ học trò nhớ ơn mãi mãi.","{n} không chỉ dạy chữ mà còn dạy em cách làm người. Chúc {n} những điều tốt đẹp nhất.","Chúc {n} một ngày 20/10 nhẹ nhàng, có hoa, có nụ cười và có em đến thăm."],
+    "Bà":["Cháu chúc {n} luôn mạnh khỏe, minh mẫn và sống vui bên con cháu thật lâu.","Những câu chuyện của {n} là kho báu tuổi thơ của cháu. Chúc {n} 20/10 thật ấm áp!","Cháu yêu {n} nhiều lắm. Chúc {n} ăn ngon, ngủ yên, khỏe mạnh và luôn cười tươi.","Bàn tay của {n} đã nuôi cả một gia đình. Cháu xin cảm ơn và chúc {n} luôn bình an.","Chúc {n} mỗi ngày đều là một ngày vui, có con cháu quanh mâm cơm đầm ấm."],
+    "Chị gái":["Em chúc {n} luôn xinh đẹp, yêu đời và luôn được cưng chiều như cô công chúa nhỏ.","Cảm ơn {n} đã luôn che chở và bên em suốt những năm tháng qua. Chúc {n} 20/10 thật vui!","Chúc {n} tìm được hạnh phúc, đủ tiền và đủ thời gian để làm những điều mình thích.","{n} là người hiểu em nhất trên đời. Chúc {n} mãi xinh, mãi vui và mãi là chị của em.","Chúc {n} một ngày 20/10 ngập tràn hoa, trà sữa và những cuộc trò chuyện dài với em nhé!"]
+  };
+  for(var mk in more)cats[mk]=(cats[mk]||[]).concat(more[mk]);
+  var defs={"Mẹ":"mẹ","Bà":"bà","Chị gái":"chị","Vợ / Người yêu":"em","Bạn bè":"bạn","Đồng nghiệp":"chị","Cô giáo":"cô","Tất cả":"bạn"},catKey="Tất cả",typer;
+  function cur(){if(catKey!=="Tất cả")return cats[catKey];var a=wishes.slice();for(var k in cats)a=a.concat(cats[k]);return a}
+  function type(t){clearInterval(typer);if(reduce){wishEl.textContent=t;return}var i=0;wishEl.textContent="";typer=setInterval(function(){wishEl.textContent=t.slice(0,++i);if(i>=t.length)clearInterval(typer)},22)}
+  var cols=[["#e8567f","#ff9eb5"],["#f4c26b","#ffe3a3"],["#c77dff","#e8b8ff"],["#ff70a6","#ff9770"]];
+  var svg=document.getElementById("bouquet");
+  function el(t,a,p){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);(p||svg).appendChild(e);return e}
+  /* Bó hoa phong phú, đầy đặn nhiều cành và lá */
+  function build(){
+    svg.innerHTML="";
+    var OX=200,OY=312;
+    var all=el("g",{"class":"sway",style:"transform-box:view-box;transform-origin:"+OX+"px "+OY+"px;animation-duration:7s"});
+    [["M200 300 q-50 -40 -92 -52 q40 -2 92 52z","#3b7a57"],["M200 300 q50 -40 92 -52 q-40 -2 -92 52z","#4c9a69"],
+     ["M198 300 q-70 -10 -112 -48 q55 4 112 48z","#4c9a69"],["M202 300 q70 -10 112 -48 q-55 4 -112 48z","#3b7a57"],
+     ["M200 300 q-28 -60 -20 -110 q26 50 20 110z","#5fae7a"],["M200 300 q28 -60 20 -110 q-26 50 -20 110z","#4c9a69"]
+    ].forEach(function(l){el("path",{d:l[0],fill:l[1],opacity:.9},all)});
+    var fl=[
+      {x:200,y:66,s:1.15,c:0,d:.1},{x:140,y:98,s:.98,c:1,d:.3},{x:260,y:96,s:1,c:2,d:.5},
+      {x:172,y:138,s:.88,c:3,d:.4},{x:230,y:134,s:.9,c:1,d:.6},
+      {x:92,y:150,s:.82,c:3,d:.7},{x:308,y:148,s:.86,c:0,d:.9},
+      {x:58,y:212,s:.7,c:1,d:1.1},{x:343,y:210,s:.72,c:2,d:1.3}
+    ];
+    fl.forEach(function(f,i){
+      var g=el("g",{"class":"sway",style:"transform-box:view-box;transform-origin:"+OX+"px "+OY+"px;animation-duration:"+(3.6+f.d*1.6)+"s;animation-delay:-"+(f.d*3)+"s"},all);
+      var cx2=(OX+f.x)/2,cy2=(OY+f.y)/2+22,ex=f.x,ey=f.y+22;
+      el("path",{d:"M"+OX+" "+OY+" Q"+cx2+" "+cy2+" "+ex+" "+ey,stroke:"#4c9a69","stroke-width":4.5,fill:"none","stroke-linecap":"round"},g);
+      var t=.55,px=(1-t)*(1-t)*OX+2*(1-t)*t*cx2+t*t*ex,py=(1-t)*(1-t)*OY+2*(1-t)*t*cy2+t*t*ey,side=f.x<OX?-1:1;
+      el("ellipse",{cx:px+side*9,cy:py,rx:6,ry:16,fill:i%2?"#3b7a57":"#5fae7a",transform:"rotate("+(side*55)+" "+(px+side*9)+" "+py+")"},g);
+      var h=el("g",{transform:"translate("+f.x+" "+f.y+") scale("+f.s+")"},g);
+      var inner=el("g",{"class":"head",style:"animation-delay:"+f.d+"s"},h);
+      var nod=el("g",{"class":"nod",style:"animation-delay:-"+f.d*2+"s"},inner);
+      for(var k=0;k<8;k++)el("ellipse",{cx:0,cy:-26,rx:13,ry:28,fill:cols[f.c][k%2],transform:"rotate("+(k*45)+")",opacity:.95},nod);
+      for(var j=0;j<8;j++)el("ellipse",{cx:0,cy:-14,rx:7,ry:15,fill:cols[f.c][(j+1)%2],transform:"rotate("+(j*45+22)+")",opacity:.9},nod);
+      el("circle",{r:10,fill:"#ffd25e"},nod);
+      el("circle",{r:4.5,fill:"#c98a1c"},nod);
+    });
+    el("path",{d:"M140 308 Q200 280 260 308 L245 330 L155 330z",fill:"#ffb3c6",opacity:.95});
+    el("path",{d:"M155 330 L200 302 L245 330 Z",fill:"#e8567f",opacity:.8});
+    el("circle",{cx:200,cy:306,r:9,fill:"#f4c26b"});
+  }
+
+  /* petals effect */
+  var cv=document.getElementById("fx"),cx=cv.getContext("2d"),W,H,ps=[],reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  function size(){var r=devicePixelRatio||1;W=cv.width=innerWidth*r;H=cv.height=innerHeight*r;cx.setTransform(r,0,0,r,0,0)}
+  function petal(x,y,burst){
+    var a=Math.random()*6.28,v=burst?2+Math.random()*5:0;
+    ps.push({x:x!=null?x:Math.random()*innerWidth,y:y!=null?y:-20,vx:burst?Math.cos(a)*v:(Math.random()-.5)*.6,vy:burst?Math.sin(a)*v-2:.6+Math.random()*1.2,
+      r:Math.random()*6,vr:(Math.random()-.5)*.08,s:6+Math.random()*8,c:Math.random()<.5?"#ffb3c6":(Math.random()<.5?"#ffd9e2":"#f4c26b")});
+  }
+  function loop(){
+    cx.clearRect(0,0,innerWidth,innerHeight);
+    if(ps.length<(reduce?0:(innerWidth<600?24:45))&&Math.random()<.08)petal();
+    for(var i=ps.length-1;i>=0;i--){
+      var p=ps[i];p.x+=p.vx+Math.sin(p.y/40)*.4;p.y+=p.vy;p.vy+=.012;p.r+=p.vr;
+      if(p.y>innerHeight+30){ps.splice(i,1);continue}
+      cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.globalAlpha=.85;
+      cx.beginPath();cx.ellipse(0,0,p.s*.55,p.s,0,0,6.28);cx.fill();cx.restore();
+    }
+    requestAnimationFrame(loop);
+  }
+  /* wishes */
+  var nameIn=document.getElementById("name"),wishEl=document.getElementById("wish"),toEl=document.getElementById("to"),idx=0;
+  function nm(){var v=nameIn.value.trim();return v||defs[catKey]}
+  function render(fade){
+    toEl.textContent=nameIn.value.trim()?"Gửi "+nameIn.value.trim()+",":"Gửi người đặc biệt,";
+    var t=cur()[idx%cur().length].replace(/\{n\}/g,nm());
+    if(!fade){wishEl.textContent=t;return}
+    wishEl.classList.add("out");
+    wishEl.classList.remove("out");type(t);
+  }
+  document.getElementById("next").onclick=function(){idx=(idx+1)%cur().length;render(true);bloomIt()};
+    nameIn.addEventListener("input",function(){
+    clearInterval(typer);
+    render(false);
+    clearTimeout(bloomIt.t);
+    bloomIt.t=setTimeout(bloomIt,450);
+  });
+  var chipBox=document.getElementById("chips");
+  ["Tất cả"].concat(Object.keys(cats)).forEach(function(k){
+    var b=document.createElement("button");
+    b.className="chip"+(k===catKey?" on":"");
+    b.textContent=k;
+    b.onclick=function(){
+      catKey=k;
+      idx=Math.floor(Math.random()*cur().length);
+      [].forEach.call(chipBox.children,function(c){c.classList.toggle("on",c===b)});
+      render(true);
+      bloomIt();
+      try{b.scrollIntoView({inline:"center",block:"nearest",behavior:"smooth"})}catch(e){}
+      if(playing) resetMusicTheme(); // Đổi giai điệu nhạc phù hợp khi đổi chủ đề
+    };
+    chipBox.appendChild(b);
+  });
+  var lastMove=0;addEventListener("pointermove",function(e){var n=Date.now();if(n-lastMove>90&&!reduce){lastMove=n;petal(e.clientX,e.clientY,true)}});
+  function burst(x,y,n){if(reduce)return;for(var i=0;i<n;i++)petal(x,y,true)}
+  svg.addEventListener("click",function(e){build();burst(e.clientX,e.clientY,30)});
+  /* countdown */
+  function count(){
+    var n=new Date(),t=new Date(2026,9,20),d=Math.ceil((new Date(t.getFullYear(),t.getMonth(),t.getDate())-new Date(n.getFullYear(),n.getMonth(),n.getDate()))/864e5);
+    document.getElementById("count").textContent=d>0?"Còn "+d+" ngày nữa đến 20/10":(d===0?"Hôm nay là 20/10 🎉":"");
+  }
+  function bloomIt(){build();burst(innerWidth/2,innerHeight*.35,34)}
+    /* --- GIAI ĐIỆU RIÊNG THEO TỪNG NHÓM NGƯỜI NHẬN --- */
+  var AC,master,playing=false,touched=false,step=0,mt,mbtn=document.getElementById("music");
+  // Mỗi nhóm có vòng hòa âm và giai điệu được soạn riêng.
+  // Âm thanh được tạo trực tiếp bằng Web Audio, không cần tải tệp nhạc ngoài.
+  var musicThemes={
+    "Tất cả": {
+      prog:[[261.63,329.63,392.00],[220.00,261.63,329.63],[174.61,220.00,261.63],[196.00,246.94,293.66]],
+      mel:[659.25,0,587.33,0,523.25,0,440.00,0,523.25,0,587.33,0,659.25,587.33,523.25,0]
+    },
+    "Mẹ": {
+      prog:[[261.63,329.63,392.00],[220.00,261.63,329.63],[196.00,246.94,293.66],[174.61,220.00,261.63]],
+      mel:[523.25,587.33,659.25,0,587.33,523.25,440.00,0,392.00,440.00,523.25,0,493.88,440.00,392.00,0]
+    },
+    "Vợ / Người yêu": {
+      prog:[[349.23,440.00,523.25],[392.00,493.88,587.33],[440.00,523.25,659.25],[329.63,392.00,523.25]],
+      mel:[587.33,659.25,783.99,880.00,783.99,659.25,587.33,0,659.25,783.99,880.00,987.77,880.00,783.99,659.25,0]
+    },
+    "Bạn bè": {
+      prog:[[293.66,369.99,440.00],[392.00,493.88,587.33],[349.23,440.00,523.25],[261.63,329.63,392.00]],
+      mel:[783.99,0,659.25,783.99,880.00,0,783.99,659.25,587.33,659.25,783.99,0,880.00,783.99,659.25,0]
+    },
+    "Đồng nghiệp": {
+      prog:[[246.94,311.13,369.99],[196.00,246.94,293.66],[220.00,277.18,329.63],[246.94,311.13,369.99]],
+      mel:[493.88,554.37,587.33,0,493.88,440.00,493.88,0,554.37,587.33,659.25,0,587.33,554.37,493.88,0]
+    },
+    "Cô giáo": {
+      prog:[[392.00,493.88,587.33],[329.63,392.00,493.88],[261.63,329.63,392.00],[349.23,440.00,523.25]],
+      mel:[659.25,659.25,698.46,783.99,783.99,698.46,659.25,587.33,523.25,523.25,587.33,659.25,659.25,587.33,587.33,0]
+    },
+    "Bà": {
+      prog:[[220.00,261.63,329.63],[196.00,233.08,293.66],[174.61,220.00,261.63],[196.00,246.94,293.66]],
+      mel:[440.00,493.88,523.25,0,493.88,440.00,392.00,0,349.23,392.00,440.00,0,392.00,349.23,329.63,0]
+    },
+    "Chị gái": {
+      prog:[[311.13,392.00,466.16],[349.23,440.00,523.25],[261.63,329.63,392.00],[293.66,369.99,440.00]],
+      mel:[622.25,698.46,783.99,0,698.46,622.25,587.33,0,698.46,783.99,880.00,0,783.99,698.46,622.25,0]
+    }
+  };
+  function getCurrentTheme(){
+    return musicThemes[catKey] || musicThemes["Tất cả"];
+  }
+  // ƯU TIÊN MP3: đặt các file vào thư mục "nhac" nằm cạnh file HTML.
+  // Nếu MP3 thiếu, lỗi tải hoặc không phát được, tự chuyển sang nhạc tạo bằng code.
+  var mp3Files={
+    "Tất cả":"nhac/tat_ca.mp3",
+    "Mẹ":"nhac/me.mp3",
+    "Vợ / Người yêu":"nhac/nguoi_yeu.mp3",
+    "Bạn bè":"nhac/ban_be.mp3",
+    "Đồng nghiệp":"nhac/dong_nghiep.mp3",
+    "Cô giáo":"nhac/co_giao.mp3",
+    "Bà":"nhac/ba.mp3",
+    "Chị gái":"nhac/chi_gai.mp3"
+  };
+  var mp3Player=new Audio();
+  mp3Player.loop=true;
+  mp3Player.preload="auto";
+  var musicSource="off",mp3Request=0;
+  function note(f,t,d,v,ty){
+    var o=AC.createOscillator(),g=AC.createGain();
+    o.type=ty;o.frequency.value=f;
+    g.gain.setValueAtTime(0.0001,t);
+    g.gain.linearRampToValueAtTime(v,t+.02);
+    g.gain.exponentialRampToValueAtTime(.0001,t+d);
+    o.connect(g);g.connect(master);o.start(t);o.stop(t+d+.05);
+  }
+  function tick(){
+    if(!playing || musicSource!=="code" || !AC)return;
+    var theme=getCurrentTheme();
+    var c=theme.prog[Math.floor(step/8)%4],t=AC.currentTime+.05,s=step%8;
+    note(c[[0,1,2,1,0,1,2,1][s]],t,.9,.08,"triangle");
+    if(s===0)note(c[0]/2,t,3,.11,"sine");
+    var m=theme.mel[step%theme.mel.length];
+    if(m)note(m,t,1.4,.09,"sine");
+    step++;
+  }
+  function setBtn(){
+    mbtn.innerHTML='<span class="eq" aria-hidden="true"><b></b><b></b><b></b></span><span>'+(playing?"Tắt nhạc":"Bật nhạc")+'</span>';
+    mbtn.classList.toggle("playing",playing);
+    mbtn.setAttribute("aria-pressed",playing);
+  }
+  function ensureAC(){
+    if(!AC){AC=new(window.AudioContext||window.webkitAudioContext)();master=AC.createGain();master.gain.value=.8;master.connect(AC.destination)}
+    var r=AC.resume();if(r&&r.catch)r.catch(function(){});
+  }
+  function stopCodeMusic(){clearInterval(mt);mt=null;}
+  function startCodeMusic(){
+    if(!playing)return;
+    mp3Request++;
+    mp3Player.onerror=null;
+    mp3Player.onended=null;
+    mp3Player.pause();
+    musicSource="code";
+    stopCodeMusic();
+    try{
+      if(!AC){
+        AC=new(window.AudioContext||window.webkitAudioContext)();
+        master=AC.createGain();master.gain.value=.8;master.connect(AC.destination);
+      }
+      var resumeResult=AC.resume();
+      if(resumeResult&&resumeResult.catch)resumeResult.catch(function(){});
+      step=0;tick();mt=setInterval(tick,450);
+    }catch(e){musicSource="off";playing=false;stopCodeMusic();}
+    setBtn();
+  }
+  function tryPlayMp3(){
+    if(!playing)return;
+    var request=++mp3Request;
+    stopCodeMusic();
+    musicSource="mp3";
+    mp3Player.onerror=function(){
+      if(playing && request===mp3Request)startCodeMusic();
+    };
+    mp3Player.onended=function(){
+      if(playing && request===mp3Request)startCodeMusic();
+    };
+    var path=mp3Files[catKey]||mp3Files["Tất cả"];
+    mp3Player.pause();
+    mp3Player.src=path;
+    mp3Player.load();
+    setBtn();
+    var result;
+    try{result=mp3Player.play();}
+    catch(e){startCodeMusic();return;}
+    if(result&&result.catch){
+      result.catch(function(){
+        if(playing && request===mp3Request)startCodeMusic();
+      });
+    }
+  }
+  function resetMusicTheme(){
+    step=0;
+    if(!playing)return;
+    // Khi đổi nhóm, thử bài MP3 của nhóm đó; nếu lỗi sẽ tự dùng giai điệu code.
+    tryPlayMp3();
+  }
+  function startM(){playing=true;try{ensureAC()}catch(e){}setBtn();tryPlayMp3();}
+  function stopM(){
+    playing=false;musicSource="off";mp3Request++;
+    mp3Player.onerror=null;mp3Player.onended=null;mp3Player.pause();
+    stopCodeMusic();setBtn();
+  }
+  mbtn.onclick=function(){touched=true;playing?stopM():startM()};
+  document.addEventListener("click",function(){if(!touched){touched=true;if(!playing)startM()}});
+  /* mở thiệp: lần chạm đầu tiên cũng là lúc tự bật nhạc (trình duyệt không cho phát nhạc khi chưa có thao tác) */
+  var sp=document.getElementById("splash");
+  function openCard(){
+    if(!sp||sp.classList.contains("hide"))return;
+    touched=true;sp.classList.add("hide");document.body.classList.add("opened");
+    if(!playing)startM();
+    build();burst(innerWidth/2,innerHeight*.4,44);
+    setTimeout(function(){if(sp&&sp.parentNode)sp.parentNode.removeChild(sp)},900);
+  }
+  sp.addEventListener("click",openCard);
+  addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){if(sp&&!sp.classList.contains("hide")){e.preventDefault();openCard()}}});
+  setTimeout(function(){try{document.getElementById("open").focus({preventScroll:true})}catch(e){}},50);
+
+  /* chặn thu phóng (pinch, double-tap, Ctrl+cuộn, Ctrl +/-) */
+  ["gesturestart","gesturechange","gestureend"].forEach(function(n){document.addEventListener(n,function(e){e.preventDefault()},{passive:false})});
+  document.addEventListener("touchmove",function(e){if(e.touches&&e.touches.length>1)e.preventDefault()},{passive:false});
+  addEventListener("wheel",function(e){if(e.ctrlKey)e.preventDefault()},{passive:false});
+  addEventListener("keydown",function(e){if((e.ctrlKey||e.metaKey)&&(e.key==="+"||e.key==="-"||e.key==="="||e.key==="0"))e.preventDefault()});
+
+  /* init */
+  var m=location.hash.match(/ten=([^&]+)/);
+  if(m){try{nameIn.value=decodeURIComponent(m[1]).slice(0,30)}catch(e){}}
+  idx=Math.floor(Math.random()*cur().length);
+  size();addEventListener("resize",size);build();render(false);count();loop();setBtn();
+  if(nameIn.value.trim())document.getElementById("spTo").textContent="Gửi "+nameIn.value.trim()+", có một lời chúc dành riêng cho bạn";
+  setTimeout(function(){burst(innerWidth/2,innerHeight*.35,26)},900);
+})();
+</script>
+</body>
+</html>
